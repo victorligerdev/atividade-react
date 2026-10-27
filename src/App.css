@@ -1,0 +1,123 @@
+/* Base */
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f7f0f0;
+  color: #222;
+}
+h2 { margin-top: 0; color: #d32f2f; }
+
+/* Botões */
+button {
+  font-size: 1rem;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 8px;
+  background: #d32f2f;
+  color: #fff;
+  cursor: pointer;
+}
+button:disabled { background: #e6b8b8; cursor: not-allowed; }
+button.secundario { background: #f5e1e1; color: #222; }
+.botoes { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+
+/* Cabeçalho e rodapé */
+header { background: #d32f2f; color: #fff; text-align: center; padding: 20px; }
+header h1 { margin: 0; }
+footer { text-align: center; padding: 20px; color: #666; }
+
+/* Grid responsivo: 1, 2 ou 3 colunas */
+.grade {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+.largo { grid-column: 1 / -1; }
+
+/* Lista de aulas */
+.aulas { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+.aulas li { border: 1px solid #f5e1e1; border-radius: 8px; padding: 12px; display: flex; flex-direction: column; gap: 6px; }
+.aulas span { color: #666; }
+
+/* Dropdown */
+.dropdown { position: relative; display: inline-block; }
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin: 4px 0 0;
+  padding: 4px;
+  list-style: none;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+  min-width: 100%;
+}
+.dropdown-menu button { width: 100%; text-align: left; background: none; color: #222; }
+.dropdown-menu button:hover { background: #f5e1e1; }
+
+/* Paginação */
+.paginacao { display: flex; flex-wrap: wrap; gap: 6px; }
+.paginacao button { background: #f5e1e1; color: #222; }
+.paginacao button.ativa { background: #d32f2f; color: #fff; }
+.paginacao button:disabled { opacity: 0.5; }
+
+/* Abas */
+.abas { display: flex; gap: 6px; border-bottom: 2px solid #f5e1e1; }
+.abas button { background: none; color: #222; border-radius: 8px 8px 0 0; }
+.abas button.ativa { background: #d32f2f; color: #fff; }
+.preco { font-size: 1.5rem; font-weight: bold; }
+
+/* Barra de progresso */
+.progresso { position: relative; height: 30px; background: #f5e1e1; border-radius: 15px; overflow: hidden; }
+.progresso-barra { height: 100%; background: #d32f2f; transition: width 0.3s; }
+.progresso span { position: absolute; inset: 0; display: grid; place-items: center; font-weight: bold; }
+
+/* Accordion */
+.accordion-titulo {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+  background: none;
+  color: #222;
+  border-bottom: 1px solid #f5e1e1;
+  border-radius: 0;
+}
+.accordion-conteudo { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; padding: 0 14px; }
+.accordion-conteudo.aberto { max-height: 200px; }
+
+/* Toast fixo no canto inferior direito */
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 8px;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+.toast button { background: none; padding: 0 4px; font-size: 1.3rem; }
+.toast.sucesso { background: #2e9e5b; }
+.toast.erro { background: #8b1a1a; }
+.toast.info { background: #d32f2f; }
+
+/* Celular */
+@media (max-width: 600px) {
+  .grade { padding: 12px; gap: 12px; }
+  .toast { left: 12px; right: 12px; bottom: 12px; }
+}
